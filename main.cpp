@@ -1,19 +1,14 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-//#include "raylib.h"
+#include "SDL2-2.0.9/i686-w64-mingw32/include/SDL2/begin_code.h"
 
 
 
 int main()
 {
 
-    const char *title = "test";
-    //InitWindow(100, 100, title);
-
     // wait??
-
-    //CloseWindow();
 
     return 0;
 }
