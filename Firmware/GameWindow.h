@@ -13,6 +13,6 @@ class GameWindow
 
     private:
     SDL_Window *_window;
-
+    SDL_Surface *_surface;
 
 }
