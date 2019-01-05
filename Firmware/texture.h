@@ -44,6 +44,7 @@ class LTexture
 	private:
 		//The actual hardware texture
 		SDL_Texture* mTexture;
+		SDL_Renderer *_renderer;
 
 		//Image dimensions
 		int mWidth;

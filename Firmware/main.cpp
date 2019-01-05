@@ -12,8 +12,6 @@ int main(int argc, char* args[])
 
     SDL_Surface *surface = NULL;
 
-    SDL_Renderer *gRenderer;
-
     //Initialize SDL
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
@@ -43,7 +41,11 @@ int main(int argc, char* args[])
 
     bool quit = false;
 
+    SDL_Renderer *gRenderer;
+    LTexture gTexture;
+
     Dot dot;
+    Dot.init(gTexture, gRenderer);
 
     // Game loop
     while (!quit)

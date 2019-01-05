@@ -20,7 +20,7 @@ class Dot
         //Initializes the variables
         Dot();
 
-        void init(LTexture texture, SDL_Renderer *renderer);
+        void init(LTexture texture, SDL_Renderer renderer);
 
         //Takes key presses and adjusts the dot's velocity
         void handleEvent( SDL_Event& e );
@@ -39,7 +39,6 @@ class Dot
         int mVelX, mVelY;
 
         LTexture _texture;
-        SDL_Renderer *_renderer;
 };
 
 #endif

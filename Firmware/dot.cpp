@@ -14,7 +14,7 @@ Dot::Dot()
     mVelY = 0;
 }
 
-void Dot::init(LTexture texture, SDL_Renderer *renderer)
+void Dot::init(LTexture texture, SDL_Renderer renderer)
 {
     _texture = texture;
     _renderer = renderer;
