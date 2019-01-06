@@ -2,7 +2,8 @@
 #define DOT_H
 
 #include <SDL.h>
-#include "texture.h"
+#include <string>
+#include "CharTexture.h"
 
 
 class Dot
@@ -20,7 +21,7 @@ class Dot
         //Initializes the variables
         Dot();
 
-        void init(LTexture texture, SDL_Renderer renderer);
+        void init(SDL_Renderer *renderer, std::string file_path);
 
         //Takes key presses and adjusts the dot's velocity
         void handleEvent( SDL_Event& e );
@@ -33,12 +34,12 @@ class Dot
 
     private:
         //The X and Y offsets of the dot
-        int mPosX, mPosY;
+        int _pos_x, _pos_y;
 
         //The velocity of the dot
-        int mVelX, mVelY;
+        int _vel_x, _vel_y;
 
-        LTexture _texture;
+        CharTexture _texture;
 };
 
 #endif

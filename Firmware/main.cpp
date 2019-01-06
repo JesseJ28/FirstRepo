@@ -4,48 +4,24 @@
 #include <stdio.h>
 #include <SDL.h>
 #include "dot.h"
+#include "GameWindow.h"
 
 
 int main(int argc, char* args[])
 {
-    SDL_Window *window = NULL;
+    // Initialize window
+    GameWindow window;
+    window.Init();
 
-    SDL_Surface *surface = NULL;
-
-    //Initialize SDL
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    {
-        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
-    }
-    else
-    {
-        window = SDL_CreateWindow("First window", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
-
-        gRenderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );
-
-                //Get window surface
-        surface = SDL_GetWindowSurface( window );
-
-        //Fill the surface white
-        SDL_FillRect( surface, NULL, SDL_MapRGB( surface->format, 0xFF, 0xFF, 0xFF ) );
-        
-        //Update the surface
-        SDL_UpdateWindowSurface( window );
-
-        // //Wait two seconds
-        // SDL_Delay( 2000 );
-    }
-
-    // Generic sdl event
+    // Generic SDL event
     SDL_Event event;
 
+    // Initialize quit flag
     bool quit = false;
 
-    SDL_Renderer *gRenderer;
-    LTexture gTexture;
-
+    // Initialize Moving Dot
     Dot dot;
-    Dot.init(gTexture, gRenderer);
+    dot.init(window.GetRenderer(), "dot.bmp");
 
     // Game loop
     while (!quit)
@@ -65,23 +41,18 @@ int main(int argc, char* args[])
 
             dot.handleEvent(event);
         }
-        dot.move();
         
-        //Clear screen
-        SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-        SDL_RenderClear( gRenderer );
-
-        //Render objects
+        dot.move();
+                    
+        window.Clear();
+        // TODO: render objects
         dot.render();
-
-        //Update screen
-        SDL_RenderPresent( gRenderer );
+        window.Update();
     }
-        //Destroy window
-    SDL_DestroyWindow( window );
 
-    //Quit SDL subsystems
-    SDL_Quit();
+
+    //Destroy window
+    window.Close();
 
     return 0;
 }
