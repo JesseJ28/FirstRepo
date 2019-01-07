@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <SDL.h>
 #include <SDL_Image.h>
+#include <SDL_ttf.h>
 
 
 
@@ -20,6 +21,12 @@ bool GameWindow::Init()
     if( !( IMG_Init( imgFlags ) & imgFlags ) )
     {
         printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
+        return 0;
+    }
+
+    if(TTF_Init() == 1)
+    {
+        printf("SDL_TTF could not initialize");
         return 0;
     }
 
@@ -57,4 +64,6 @@ void GameWindow::Close()
 {
     SDL_DestroyWindow(_window);
     SDL_Quit();
+    IMG_Quit();
+    TTF_Quit();
 }

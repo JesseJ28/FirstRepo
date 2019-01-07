@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 #include <string>
-#include "CharTexture.h"
+#include "Texture.h"
 
 
 class Dot
@@ -39,7 +39,7 @@ class Dot
         //The velocity of the dot
         int _vel_x, _vel_y;
 
-        CharTexture _texture;
+        Texture _texture;
 };
 
 #endif

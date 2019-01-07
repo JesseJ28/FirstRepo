@@ -74,5 +74,5 @@ void Dot::move()
 
 void Dot::render()
 {
-    _texture.Render(_pos_x, _pos_y, NULL, 0.0, NULL, SDL_FLIP_NONE);
+    _texture.Render(_pos_x, _pos_y);
 }
