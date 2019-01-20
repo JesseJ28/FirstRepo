@@ -10,7 +10,6 @@ class Button
 {
     public:
         void Init(SDL_Renderer *renderer, int x, int y, int w, int h, void (*DoSomethingFunction)());
-        void SetName(char *name);
 
         void handleEvent(SDL_Event &event);
         void render();
@@ -20,10 +19,11 @@ class Button
         int GetX();
         int GetY();
 
+        Texture text;
+
     private:
 
         SDL_Renderer *_renderer;
-        char _name[10];
         SDL_Rect _size;
 
         void (*DoSomething)();

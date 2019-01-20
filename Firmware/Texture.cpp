@@ -10,8 +10,15 @@
 void Texture::Init(SDL_Renderer *renderer)
 {
     _renderer = renderer;
+	_texture = NULL;
     _width = 0;
     _height = 0;
+}
+
+
+bool Texture::IsInitialized()
+{
+	return !(_texture == NULL);
 }
 
 

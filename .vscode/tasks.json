@@ -4,17 +4,19 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "make",
-            "type": "process",
+            "label": "build",
+            "type": "shell",
             "command": "mingw32-make",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "presentation": {
-                "reveal": "always",
-                "panel": "new"
-            }
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            "options": {
+                "cwd": "${workspaceRoot}/Firmware"
+            },
+            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
         }
     ]
 }

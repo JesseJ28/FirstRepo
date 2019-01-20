@@ -12,6 +12,7 @@ class Texture
     public:
     
         void Init(SDL_Renderer *renderer);
+        bool IsInitialized();
         bool LoadTextureFromString(std::string file_path);
         bool LoadTextFromString(TTF_Font *font, std::string textureText, SDL_Color textColor);
         void Render( int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);

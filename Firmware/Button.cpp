@@ -7,17 +7,12 @@
 void Button::Init(SDL_Renderer *renderer, int x, int y, int w, int h, void (*DoSomethingFunction)())
 {
     _renderer = renderer;
+    text.Init(renderer);
     _size.x = x;
     _size.y = y;
     _size.w = w;
     _size.h = h;
     DoSomething = DoSomethingFunction;
-}
-
-
-void Button::SetName(char *name)
-{
-    strcpy(_name, name);
 }
 
 
@@ -68,6 +63,9 @@ void Button::render()
     SDL_SetRenderDrawColor(_renderer, 0x00, 0x00, 0x00, 0x00);
     SDL_RenderDrawRect(_renderer, &_size);
     SDL_RenderFillRect(_renderer, &_size);
+
+    if (text.IsInitialized())
+        text.Render(_size.x, _size.y);
 }
 
 
