@@ -5,20 +5,22 @@
 OBJ_NAME = main.exe
 
 #All directories to search through for include files
-INC = -IC:\repos\FirstRepo\SDL2-2.0.9\i686-w64-mingw32\include\SDL2 -I.
+INC = -IC:\Projects\Personal\FirstRepo\SDL2-2.0.9\include -I.
 
 #all libraries to include
-LIB = -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LIB =  -lSDL2main -lSDL2  -lSDL2_ttf -lSDL2_image
+#-lmingw32
+#-lSDL2_image
 
 #all pathes to search for libraries
-LIB_PATH = -LC:\Repos\FirstRepo\SDL2-2.0.9\i686-w64-mingw32\lib
+LIB_PATH = -LC:\Projects\Personal\FirstRepo\SDL2-2.0.9\lib\x86
 
 CPPFILES = GameWindow.cpp
 CPPFILES += dot.cpp
 CPPFILES += Texture.cpp
 CPPFILES += Button.cpp
 CPPFILES += ButtonActions.cpp
-
+#$(CPPFILES)
 
 
 main: 

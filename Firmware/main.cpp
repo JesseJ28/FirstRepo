@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL.h>
+#include <SDL_image.h>
 #include <SDL_ttf.h>
 #include "Texture.h"
 #include "dot.h"
@@ -13,6 +14,7 @@
 
 int main(int argc, char* args[])
 {
+    printf("hello");
     // Initialize window
     GameWindow window;
     window.Init();
@@ -24,11 +26,11 @@ int main(int argc, char* args[])
     bool quit = false;
 
     // TODO: Fix this so that don't have to use absolute path
-    TTF_Font *font = TTF_OpenFont("C:/Repos/FirstRepo/Firmware/Fonts/OpenSans-Regular.ttf", 28);
-    if(font == NULL)
-    {
-        printf("Font failed");
-    }
+    // TTF_Font *font = TTF_OpenFont("C:/Repos/FirstRepo/Firmware/Fonts/OpenSans-Regular.ttf", 28);
+    // if(font == NULL)
+    // {
+    //     printf("Font failed");
+    // }
 
     // White
     SDL_Color color = {255,255,255};
@@ -39,11 +41,11 @@ int main(int argc, char* args[])
 
     Button button;
     button.Init(window.GetRenderer(), 200, 380, 200, 100, Button_DoStuff);
-    button.text.LoadTextFromString(font, "button pressed", color);
+    // button.text.LoadTextFromString(font, "button pressed", color);
 
-    Texture text;
-    text.Init(window.GetRenderer());
-    text.LoadTextFromString(font, "hello", color);
+    // Texture text;
+    // text.Init(window.GetRenderer());
+    // text.LoadTextFromString(font, "hello", color);
 
     // Game loop
     while (!quit)
