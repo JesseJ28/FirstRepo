@@ -7,7 +7,7 @@
 
 
 
-bool GameWindow::Init()
+bool GameWindow::Init(int window_width, int window_height)
 {
 
     //Initialize SDL
@@ -35,7 +35,9 @@ bool GameWindow::Init()
     _window = NULL;
     _renderer = NULL;
 
-    _window = SDL_CreateWindow("First window", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+    _window = SDL_CreateWindow("First window", 100, 100, window_width, window_height, SDL_WINDOW_SHOWN);
+    _window_width = window_width;
+    _window_height = window_height;
     _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     return 1;
@@ -59,6 +61,18 @@ void GameWindow::Clear()
 SDL_Renderer *GameWindow::GetRenderer()
 {
     return _renderer;
+}
+
+
+int GameWindow::getHeight()
+{
+    return _window_height;
+}
+
+
+int GameWindow::getWidth()
+{
+    return _window_width;
 }
 
 

@@ -5,7 +5,7 @@
 OBJ_NAME = main.exe
 
 #All directories to search through for include files
-INC = -IC:\Projects\Personal\FirstRepo\SDL2-2.0.9\include -I.
+INC = -IC:\Projects\Personal\FirstRepo\SDL2-2.0.9\include -I. -I./Map
 
 #all libraries to include
 LIB =  -lSDL2main -lSDL2  -lSDL2_ttf -lSDL2_image
@@ -20,6 +20,8 @@ CPPFILES += dot.cpp
 CPPFILES += Texture.cpp
 CPPFILES += Button.cpp
 CPPFILES += ButtonActions.cpp
+CPPFILES += Map/Map.cpp
+CPPFILES += Camera.cpp
 #$(CPPFILES)
 
 

@@ -2,6 +2,7 @@
 #include <string>
 #include <stdlib.h>
 #include <stdio.h>
+#include <fstream>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -10,13 +11,18 @@
 #include "GameWindow.h"
 #include "Button.h"
 #include "ButtonActions.h"
+#include "Map.h"
+#include "Camera.h"
+
+#define WINDOW_WIDTH 640
+#define WINDOW_HEIGHT 480
 
 
 int main(int argc, char* args[])
 {
     // Initialize window
     GameWindow window;
-    window.Init();
+    window.Init(WINDOW_WIDTH, WINDOW_HEIGHT);
 
     // Generic SDL event
     SDL_Event event;
@@ -46,6 +52,16 @@ int main(int argc, char* args[])
     text.Init(window.GetRenderer());
     text.LoadTextFromString(font, "hello", color);
 
+    Map map(window.GetRenderer(), "Map/tiles.png", 80, 80);
+
+    SDL_Rect camera_rect;
+    camera_rect.x = 0;
+    camera_rect.y = 0;
+    camera_rect.w = 640;
+    camera_rect.h = 320;
+
+    Camera camera(camera_rect);
+
     // Game loop
     while (!quit)
     {
@@ -64,6 +80,7 @@ int main(int argc, char* args[])
 
             dot.handleEvent(event);
             button.handleEvent(event);
+            camera.handleEvent(event);
         }
 
         // Change positions
@@ -76,6 +93,7 @@ int main(int argc, char* args[])
         button.render();
         dot.render();
         text.Render(200,400);
+        map.Render(camera.GetCameraRect());
 
         // Update Window
         window.Update();
