@@ -16,7 +16,7 @@ LIB =  -lSDL2main -lSDL2  -lSDL2_ttf -lSDL2_image
 LIB_PATH = -LC:\Projects\Personal\FirstRepo\SDL2-2.0.9\lib\x86
 
 CPPFILES = GameWindow.cpp
-CPPFILES += dot.cpp
+CPPFILES += MainCharacter.cpp
 CPPFILES += Texture.cpp
 CPPFILES += Button.cpp
 CPPFILES += ButtonActions.cpp

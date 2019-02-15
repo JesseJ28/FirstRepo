@@ -6,7 +6,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include "Texture.h"
-#include "dot.h"
+#include "MainCharacter.h"
 #include "GameWindow.h"
 #include "Button.h"
 #include "ButtonActions.h"
@@ -35,8 +35,8 @@ int main(int argc, char* args[])
     SDL_Color color = {255,255,255};
 
     // Initialize Moving Dot
-    Dot dot;
-    dot.init(window.GetRenderer(), "bulbasaur.png");
+    MainCharacter main_character;
+    main_character.init(window.GetRenderer(), "bulbasaur.png");
 
     Button button;
     button.Init(window.GetRenderer(), 200, 380, 200, 100, Button_DoStuff);
@@ -62,19 +62,16 @@ int main(int argc, char* args[])
 
             }
 
-            dot.handleEvent(event);
+            main_character.handleEvent(event);
             button.handleEvent(event);
         }
-
-        // Change positions
-        dot.move();
                     
         // Clear the window
         window.Clear();
         
         // Render Objects
         button.render();
-        dot.render();
+        main_character.render();
         text.Render(200,400);
 
         // Update Window
