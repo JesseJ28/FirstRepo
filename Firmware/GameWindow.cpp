@@ -6,28 +6,26 @@
 
 
 
-
-bool GameWindow::Init()
+GameWindow::GameWindow()
 {
-
     //Initialize SDL
     if( SDL_Init( SDL_INIT_EVERYTHING ) < 0 )
     {
         printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
-        return 0;    
+        return;    
     }
 
     int imgFlags = IMG_INIT_PNG;
     if( !( IMG_Init( imgFlags ) & imgFlags ) )
     {
         printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
-        return 0;
+        return;
     }
 
     if(TTF_Init() == 1)
     {
         printf("SDL_TTF could not initialize");
-        return 0;
+        return;
     }
 
     _window = NULL;
@@ -36,7 +34,7 @@ bool GameWindow::Init()
     _window = SDL_CreateWindow("First window", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
     _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-    return 1;
+    return;
 }
 
 
@@ -66,4 +64,10 @@ void GameWindow::Close()
     SDL_Quit();
     IMG_Quit();
     TTF_Quit();
+}
+
+
+void GameWindow::Resizeable(bool resizeable)
+{
+    SDL_SetWindowResizable(_window, (SDL_bool)resizeable);
 }

@@ -9,18 +9,19 @@
 
 class GameWindow
 {
-    public:
+public:
+    GameWindow();
 
-    bool Init();
     void Update();
     void Clear();
-    SDL_Renderer *GetRenderer();
+    SDL_Renderer* GetRenderer();
     void Close();
 
+    void Resizeable(bool resizeable);
 
-    private:
+
+private:
     SDL_Window *_window;
-    SDL_Surface *_surface;
     SDL_Renderer *_renderer;
 
 };
