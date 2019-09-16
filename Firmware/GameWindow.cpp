@@ -71,3 +71,9 @@ void GameWindow::Resizeable(bool resizeable)
 {
     SDL_SetWindowResizable(_window, (SDL_bool)resizeable);
 }
+
+
+void GameWindow::GetWindowSize(int *w, int *h)
+{
+    SDL_GetWindowSize(_window, w, h);
+}

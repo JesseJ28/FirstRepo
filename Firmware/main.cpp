@@ -15,7 +15,6 @@ int main(int argc, char* args[])
 {
     // Initialize window
     GameWindow window;
-    window.SetWindowResizeable(true);
 
     // Generic SDL event
     SDL_Event event;

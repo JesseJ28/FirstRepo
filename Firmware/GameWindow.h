@@ -18,6 +18,7 @@ public:
     void Close();
 
     void Resizeable(bool resizeable);
+    void GetWindowSize(int *w, int *h);
 
 
 private:
