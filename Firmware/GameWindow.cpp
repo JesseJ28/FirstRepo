@@ -14,6 +14,8 @@ GameWindow::GameWindow()
         printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
         return;    
     }
+    freopen("CON", "w", stdout); // redirects stdout
+    freopen("CON", "w", stderr);
 
     int imgFlags = IMG_INIT_PNG;
     if( !( IMG_Init( imgFlags ) & imgFlags ) )
