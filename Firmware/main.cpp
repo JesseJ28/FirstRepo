@@ -14,7 +14,6 @@
 
 int main(int argc, char* args[])
 {
-    printf("hello");
     // Initialize window
     GameWindow window;
     // window.SetWindowResizeable(true);
